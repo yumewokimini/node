@@ -1,15 +1,16 @@
 const express = require("express");
-const userRouter = require("./routes/user.js");
-const productRouter = require("./routes/product.js");
-const login = require("./routes/login.js");
 const cors = require("cors"); //set1
 const morgan = require("morgan");
 const session = require("express-session");
 const fileStore = require("session-file-store")(session);
 var cookieParser = require('cookie-parser');
 const multer  = require('multer')
-const upload = multer({ dest: 'c:/temp' })
 
+const upload = multer({ dest: 'c:/temp' })
+const userRouter = require("./routes/user.js");
+const productRouter = require("./routes/product.js");
+const customerRouter = require("./routes/customer.js");
+const login = require("./routes/login.js");
 
 const app = express();
 const port = 3000;
@@ -45,8 +46,8 @@ app.use(
 
 
 
-
-
+//미들웨어
+app.use("/customer",customerRouter);
 app.use("/member", userRouter);
 app.use("/product", productRouter);
 app.use("/", login);
