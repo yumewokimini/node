@@ -1,6 +1,5 @@
 const mysql = require("mysql2");
 const sql = require("./board_sql.js");
-const { param } = require("../routes/board.js");
 
 const conn = {  host: "127.0.0.1",
     port: "3306",
