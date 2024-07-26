@@ -88,6 +88,7 @@ router.delete("/:id",(req,res)=>{
 //                     }else{
 //                         console.log("faill update")
 //                     }
+//                      res.sedStatus(500);
 //     });
 //     connection.end();
 });
