@@ -2,9 +2,18 @@ const express = require("express");
 const router = express.Router();
 const mysql = require("../mysql/pool.js");
 
-//조회
-router.get("/", (req, res) => {
-  mysql.query("boardList").then((result) => res.send(result));
+//조회 /board?page=1 => (page-1)*10 ->0,2->10
+router.get("/", async (req, res) => {
+  let page = req.query.page;
+  if(!page){
+    page = 1
+  }
+  let offset = (page-1)*10;
+  let list = await mysql.query("boardList",offset);
+  let total = await mysql.query("boardCount");
+  
+  // mysql.query("boardList").then((result) => res.send(result));
+  res.send({list , total: total[0].cnt});
 });
 
 //단건조회

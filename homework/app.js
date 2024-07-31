@@ -3,8 +3,8 @@ const cors = require("cors");
 
 const boardRouter = require("./routes/board.js");
 
-const app = express();
-const port = 3000;
+const app = express()
+const port = 80;
 
 app.use(cors());
 app.use(express.static("public"));
