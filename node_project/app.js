@@ -13,7 +13,7 @@ const customerRouter = require("./routes/customer.js");
 const login = require("./routes/login.js");
 
 const app = express();
-const port = 80;
+const port = 81;
 
 app.use(cors()); //set1
 app.use(express.static("public"));
