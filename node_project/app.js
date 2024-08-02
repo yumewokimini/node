@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors"); //set1
+
+
 const morgan = require("morgan");
 const session = require("express-session");
 const fileStore = require("session-file-store")(session);
@@ -19,6 +21,7 @@ app.use(cors()); //set1
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 // app.use(morgan("combined"));
 app.use(morgan(":date[] : methor:url"));
 app.use(cookieParser());
